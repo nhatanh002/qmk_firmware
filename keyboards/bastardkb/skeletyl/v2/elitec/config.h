@@ -18,4 +18,9 @@
 #pragma once
 
 /* Handedness. */
-#define MASTER_RIGHT
+/* #define MASTER_RIGHT */
+#define MASTER_LEFT
+#define MK_INITIAL_SPEED = 400
+#define MOUSEKEY_BASE_SPEED = 3600
+#define MOUSEKEY_DECELERATED_SPEED = 100
+#define MOUSEKEY_ACCELERATED_SPEED = 2800
