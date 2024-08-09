@@ -17,6 +17,8 @@
  */
 
 #pragma once
+#define BOOTMAGIC_ROW 0
+#define BOOTMAGIC_COLUMN 0
 
 /* RGB settings. */
 #define RGBLED_NUM 36
