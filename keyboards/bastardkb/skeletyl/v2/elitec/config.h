@@ -19,7 +19,7 @@
 
 /* Handedness. */
 /* #define MASTER_RIGHT */
-#define MASTER_LEFT
+#define MASTER_RIGHT
 #define MK_INITIAL_SPEED = 400
 #define MOUSEKEY_BASE_SPEED = 3600
 #define MOUSEKEY_DECELERATED_SPEED = 100
