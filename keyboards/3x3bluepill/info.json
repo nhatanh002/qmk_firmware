@@ -1,7 +1,7 @@
 {
     "manufacturer": "nhatanh",
     "keyboard_name": "3x3bluepill",
-    "maintainer": "nhatanh-zen8",
+    "maintainer": "nhatanh",
     "bootloader": "stm32duino",
     "diode_direction": "COL2ROW",
     "features": {

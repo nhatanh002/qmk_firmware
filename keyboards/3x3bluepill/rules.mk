@@ -7,6 +7,7 @@ BOOTLOADER = stm32duino
 # BACKLIGHT_ENABLE = yes       # enable keyboard backlight functionality
 BOOTMAGIC_ENABLE = yes      # Enable Bootmagic Lite
 RGBLIGHT_ENABLE = yes        # enable keyboard rgb underglow
+TAP_DANCE_ENABLE = yes
 # RGB_MATRIX_ENABLE = yes
 RGBLIGHT_DRIVER = WS2812
 MOUSEKEY_ENABLE = yes       # Mouse keys

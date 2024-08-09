@@ -3,6 +3,24 @@
 
 #include QMK_KEYBOARD_H
 
+// tap dancing
+enum {
+   BOOT_OR_ENT
+};
+
+void u_td_fn_boot_or_enter(tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        register_code(KC_ENT);
+        unregister_code(KC_ENT);
+    } else if (state->count >= 2) {
+        reset_keyboard();
+  }
+}
+
+tap_dance_action_t tap_dance_actions[] = {
+    [BOOT_OR_ENT] = ACTION_TAP_DANCE_FN(u_td_fn_boot_or_enter),
+};
+
 enum LAYERS_33 {
      BASE,
      NAV,
@@ -36,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         LCTL_T(KC_HOME), LT(CHANGE_LAYER,KC_0), LALT_T(KC_END)
     ),
     [MOUSE] = LAYOUT_ortho_3x3(
-        KC_WH_D, KC_MS_U, KC_WH_U,
+        KC_WH_U, KC_MS_U, KC_WH_D,
         KC_MS_L, KC_MS_D, KC_MS_R,
         KC_BTN1, KC_BTN3, LT(CHANGE_LAYER,KC_BTN2)
     ),
@@ -58,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_MOD] = LAYOUT_ortho_3x3(
         LT(CHANGE_LAYER,KC_DEL), LSFT_T(KC_BSPC), LALT_T(KC_TAB),
         LCTL_T(KC_ESC),          LSFT_T(KC_SPC),  LALT_T(KC_ENT),
-        LGUI_T(KC_TAB),          KC_SPC,          KC_ENT
+        LGUI_T(KC_TAB),          KC_SPC,          TD(BOOT_OR_ENT)
     ),
     [WS] = LAYOUT_ortho_3x3(
         KC_7, LT(CHANGE_LAYER,KC_8), KC_9,
@@ -77,7 +95,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [CHANGE_LAYER] = LAYOUT_ortho_3x3(
         TO(_MOD),  TO(WS),    TO(RESERVED_3),
-        TO(LED),  TO(MEDIA), TO(MACRO), 
-        TO(BASE), TO(NAV),   TO(MOUSE) 
+        TO(LED),  TO(MEDIA), TO(MACRO),
+        TO(BASE), TO(NAV),   TO(MOUSE)
     )
 };
